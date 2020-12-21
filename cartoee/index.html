@@ -1,0 +1,3356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://geemap.org/cartoee/">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.7">
+    
+    
+      
+        <title>cartoee module - geemap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.19753c6b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cartoee-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://geemap.org" title="geemap" class="md-header-nav__button md-logo" aria-label="geemap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            geemap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              cartoee module
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/giswqs/geemap/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://geemap.org" title="geemap" class="md-nav__button md-logo" aria-label="geemap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    geemap
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/giswqs/geemap/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../get-started/" class="md-nav__link">
+      Get Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../usage/" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tutorials/" class="md-nav__link">
+      Tutorials
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../citations/" class="md-nav__link">
+      Citations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../changelog/" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://geemap-tutorials.herokuapp.com" class="md-nav__link">
+      Voilà App
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://blog.gishub.org" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/c/QiushengWu" class="md-nav__link">
+      YouTube Channel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/giswqs/geemap/issues" class="md-nav__link">
+      Report Issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14" checked>
+    <label class="md-nav__link" for="nav-14">
+      API Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        <span class="md-nav__icon md-icon"></span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../basemaps/" class="md-nav__link">
+      basemaps module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        cartoee module
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      cartoee module
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee" class="md-nav__link">
+    geemap.cartoee
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_colorbar" class="md-nav__link">
+    add_colorbar()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_gridlines" class="md-nav__link">
+    add_gridlines()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_layer" class="md-nav__link">
+    add_layer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_north_arrow" class="md-nav__link">
+    add_north_arrow()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_scale_bar" class="md-nav__link">
+    add_scale_bar()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.bbox_to_extent" class="md-nav__link">
+    bbox_to_extent()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.build_palette" class="md-nav__link">
+    build_palette()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.check_dependencies" class="md-nav__link">
+    check_dependencies()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.convert_SI" class="md-nav__link">
+    convert_SI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.get_image_collection_gif" class="md-nav__link">
+    get_image_collection_gif()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.get_map" class="md-nav__link">
+    get_map()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.pad_view" class="md-nav__link">
+    pad_view()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../common/" class="md-nav__link">
+      common module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conversion/" class="md-nav__link">
+      conversion module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eefolium/" class="md-nav__link">
+      eefolium module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../geemap/" class="md-nav__link">
+      geemap module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../legends/" class="md-nav__link">
+      legends module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ml/" class="md-nav__link">
+      ml module
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" >
+    <label class="md-nav__link" for="nav-15">
+      Notebooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Notebooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        <span class="md-nav__icon md-icon"></span>
+        Notebooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/00_geemap_key_features/" class="md-nav__link">
+      00 geemap key features
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/01_geemap_intro/" class="md-nav__link">
+      01 geemap intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/02_using_basemaps/" class="md-nav__link">
+      02 using basemaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/03_inspector_tool/" class="md-nav__link">
+      03 inspector tool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/04_split_panel_map/" class="md-nav__link">
+      04 split panel map
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/05_drawing_tools/" class="md-nav__link">
+      05 drawing tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/06_marker_cluster/" class="md-nav__link">
+      06 marker cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/07_geojson/" class="md-nav__link">
+      07 geojson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/08_ee_js_to_ipynb/" class="md-nav__link">
+      08 ee js to ipynb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/09_plotting/" class="md-nav__link">
+      09 plotting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/10_shapefiles/" class="md-nav__link">
+      10 shapefiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/11_export_image/" class="md-nav__link">
+      11 export image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/12_zonal_statistics/" class="md-nav__link">
+      12 zonal statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/13_zonal_statistics_by_group/" class="md-nav__link">
+      13 zonal statistics by group
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/14_legends/" class="md-nav__link">
+      14 legends
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/15_convert_js_to_py/" class="md-nav__link">
+      15 convert js to py
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/16_add_animated_text/" class="md-nav__link">
+      16 add animated text
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/17_add_colorbar_to_gif/" class="md-nav__link">
+      17 add colorbar to gif
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/18_create_landsat_timelapse/" class="md-nav__link">
+      18 create landsat timelapse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/19_search_places_and_datasets/" class="md-nav__link">
+      19 search places and datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/20_timeseries_inspector/" class="md-nav__link">
+      20 timeseries inspector
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/21_export_map_to_html_png/" class="md-nav__link">
+      21 export map to html png
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/22_import_scripts/" class="md-nav__link">
+      22 import scripts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/23_import_assets/" class="md-nav__link">
+      23 import assets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/24_publish_maps/" class="md-nav__link">
+      24 publish maps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/25_load_rasters/" class="md-nav__link">
+      25 load rasters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/26_heroku/" class="md-nav__link">
+      26 heroku
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/27_timelapse_app/" class="md-nav__link">
+      27 timelapse app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/28_voila/" class="md-nav__link">
+      28 voila
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/29_pydeck/" class="md-nav__link">
+      29 pydeck
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/30_image_props_stats/" class="md-nav__link">
+      30 image props stats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/31_unsupervised_classification/" class="md-nav__link">
+      31 unsupervised classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/32_supervised_classification/" class="md-nav__link">
+      32 supervised classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/33_accuracy_assessment/" class="md-nav__link">
+      33 accuracy assessment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/34_extract_values/" class="md-nav__link">
+      34 extract values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/35_geemap_colab/" class="md-nav__link">
+      35 geemap colab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/36_quality_mosaic/" class="md-nav__link">
+      36 quality mosaic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/37_pydeck_3d/" class="md-nav__link">
+      37 pydeck 3d
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/38_cloud_geotiff/" class="md-nav__link">
+      38 cloud geotiff
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/39_timelapse/" class="md-nav__link">
+      39 timelapse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/40_ipywidgets/" class="md-nav__link">
+      40 ipywidgets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/41_water_app/" class="md-nav__link">
+      41 water app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/42_upload_data/" class="md-nav__link">
+      42 upload data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/43_extract_values_to_points/" class="md-nav__link">
+      43 extract values to points
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/44_cog_stac/" class="md-nav__link">
+      44 cog stac
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/45_cog_mosaic/" class="md-nav__link">
+      45 cog mosaic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/46_local_rf_training/" class="md-nav__link">
+      46 local rf training
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/47_image_thumbnails/" class="md-nav__link">
+      47 image thumbnails
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/48_folium_legend/" class="md-nav__link">
+      48 folium legend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/49_colorbar/" class="md-nav__link">
+      49 colorbar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/50_cartoee_quickstart/" class="md-nav__link">
+      50 cartoee quickstart
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/51_cartoee_projections/" class="md-nav__link">
+      51 cartoee projections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/52_cartoee_gif/" class="md-nav__link">
+      52 cartoee gif
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notebooks/53_layer_vis/" class="md-nav__link">
+      53 layer vis
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee" class="md-nav__link">
+    geemap.cartoee
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_colorbar" class="md-nav__link">
+    add_colorbar()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_gridlines" class="md-nav__link">
+    add_gridlines()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_layer" class="md-nav__link">
+    add_layer()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_north_arrow" class="md-nav__link">
+    add_north_arrow()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.add_scale_bar" class="md-nav__link">
+    add_scale_bar()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.bbox_to_extent" class="md-nav__link">
+    bbox_to_extent()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.build_palette" class="md-nav__link">
+    build_palette()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.check_dependencies" class="md-nav__link">
+    check_dependencies()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.convert_SI" class="md-nav__link">
+    convert_SI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.get_image_collection_gif" class="md-nav__link">
+    get_image_collection_gif()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.get_map" class="md-nav__link">
+    get_map()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.cartoee.pad_view" class="md-nav__link">
+    pad_view()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                  <a href="https://github.com/giswqs/geemap/edit/master/docs/cartoee.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="cartoee-module">cartoee module</h1>
+<div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#geemap.cartoee" id="geemap.cartoee" style="visibility: hidden; position: absolute;">
+        </h2>
+<div class="doc doc-contents first">
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.add_colorbar">
+
+        <code class="highlight language-python">
+add_colorbar<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Add a colorbar tp the map based on visualization parameters provided</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object to add image overlay to</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>loc</code></td>
+<td><code>str</code></td>
+<td>
+<p>string specifying the position</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>vis_params</code></td>
+<td><code>dict</code></td>
+<td>
+<p>visualization parameters as a dictionary. See https://developers.google.com/earth-engine/image_visualization for options</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>**kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>remaining keyword arguments are passed to colorbar()</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Warning</code></td>
+<td>
+<p>If 'discrete' is true when "palette" key is not in visParams</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If <code>ax</code> is not of type cartopy.mpl.geoaxes.GeoAxesSubplot</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If 'cmap' or "palette" key in visParams is not provided</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If "min" in visParams is not of type scalar</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If "max" in visParams is not of type scalar</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If 'loc' or 'cax' keywords are not provided</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If 'loc' is not of type str or does not equal available options</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_colorbar</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Add a colorbar tp the map based on visualization parameters provided</span>
+<span class="sd">    args:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object to add image overlay to</span>
+<span class="sd">        loc (str, optional): string specifying the position</span>
+<span class="sd">        vis_params (dict, optional): visualization parameters as a dictionary. See https://developers.google.com/earth-engine/image_visualization for options</span>
+<span class="sd">        **kwargs: remaining keyword arguments are passed to colorbar()</span>
+
+<span class="sd">    raises:</span>
+<span class="sd">        Warning: If 'discrete' is true when "palette" key is not in visParams</span>
+<span class="sd">        ValueError: If `ax` is not of type cartopy.mpl.geoaxes.GeoAxesSubplot</span>
+<span class="sd">        ValueError: If 'cmap' or "palette" key in visParams is not provided</span>
+<span class="sd">        ValueError: If "min" in visParams is not of type scalar</span>
+<span class="sd">        ValueError: If "max" in visParams is not of type scalar</span>
+<span class="sd">        ValueError: If 'loc' or 'cax' keywords are not provided</span>
+<span class="sd">        ValueError: If 'loc' is not of type str or does not equal available options</span>
+<span class="sd">    """</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">GeoAxes</span><span class="p">,</span> <span class="n">GeoAxesSubplot</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">"provided axes not of type cartopy.mpl.geoaxes.GeoAxes "</span>
+            <span class="s2">"or cartopy.mpl.geoaxes.GeoAxesSubplot"</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">loc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">loc</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"left"</span><span class="p">,</span> <span class="s2">"right"</span><span class="p">,</span> <span class="s2">"bottom"</span><span class="p">,</span> <span class="s2">"top"</span><span class="p">]):</span>
+            <span class="n">posOpts</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">"left"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+                <span class="s2">"right"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+                <span class="s2">"bottom"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">],</span>
+                <span class="s2">"top"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">],</span>
+            <span class="p">}</span>
+
+            <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">posOpts</span><span class="p">[</span><span class="n">loc</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="n">loc</span> <span class="o">==</span> <span class="s2">"left"</span><span class="p">:</span>
+                <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">loc</span> <span class="o">==</span> <span class="s2">"right"</span><span class="p">:</span>
+                <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">'provided loc not of type str. options are "left", '</span>
+                <span class="s1">'"top", "right", or "bottom"'</span>
+            <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="s2">"cax"</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">cax</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"cax"</span><span class="p">]</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">"cax"</span><span class="p">}</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"loc or cax keywords must be specified"</span><span class="p">)</span>
+
+    <span class="n">vis_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vis_params</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">vis_params</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"min"</span> <span class="ow">in</span> <span class="n">vis_params</span><span class="p">:</span>
+            <span class="n">vmin</span> <span class="o">=</span> <span class="n">vis_params</span><span class="p">[</span><span class="s2">"min"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">vmin</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"provided min value not of scalar type"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="s2">"max"</span> <span class="ow">in</span> <span class="n">vis_params</span><span class="p">:</span>
+            <span class="n">vmax</span> <span class="o">=</span> <span class="n">vis_params</span><span class="p">[</span><span class="s2">"max"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">vmax</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"provided max value not of scalar type"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vmax</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="s2">"opacity"</span> <span class="ow">in</span> <span class="n">vis_params</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">vis_params</span><span class="p">[</span><span class="s2">"opacity"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"provided opacity value of not type scalar"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"alpha"</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"alpha"</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">discrete</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s1">'discrete keyword used when "palette" key is '</span>
+                    <span class="s2">"supplied with visParams, creating a continuous "</span>
+                    <span class="s2">"colorbar..."</span>
+                <span class="p">)</span>
+
+            <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+            <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">"palette"</span> <span class="ow">in</span> <span class="n">vis_keys</span><span class="p">:</span>
+            <span class="n">hexcodes</span> <span class="o">=</span> <span class="n">vis_params</span><span class="p">[</span><span class="s2">"palette"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+            <span class="n">hexcodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"#"</span> <span class="k">else</span> <span class="s2">"#"</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hexcodes</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">discrete</span><span class="p">:</span>
+                <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">(</span><span class="n">hexcodes</span><span class="p">)</span>
+                <span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">.</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+                    <span class="s2">"custom"</span><span class="p">,</span> <span class="n">hexcodes</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+                <span class="p">)</span>
+                <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+
+            <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmap</span>
+
+        <span class="k">elif</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">discrete</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s1">'discrete keyword used when "palette" key is '</span>
+                    <span class="s2">"supplied with visParams, creating a continuous "</span>
+                    <span class="s2">"colorbar..."</span>
+                <span class="p">)</span>
+
+            <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+            <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">'cmap keyword or "palette" key in visParams must be provided'</span>
+            <span class="p">)</span>
+
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">"bands"</span> <span class="ow">in</span> <span class="n">vis_keys</span><span class="p">:</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">vis_params</span><span class="p">[</span><span class="s2">"bands"</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.add_gridlines">
+
+        <code class="highlight language-python">
+add_gridlines<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">buffer_out</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xtick_rotation</span><span class="o">=</span><span class="s1">'horizontal'</span><span class="p">,</span> <span class="n">ytick_rotation</span><span class="o">=</span><span class="s1">'horizontal'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Helper function to add gridlines and format ticks to map</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object to add the gridlines to</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>interval</code></td>
+<td><code>float | list[float]</code></td>
+<td>
+<p>float specifying an interval at which to create gridlines, units are decimal degrees. lists will be interpreted a [x_interval, y_interval]. default = None</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>n_ticks</code></td>
+<td><code>int | list[int]</code></td>
+<td>
+<p>integer specifying number gridlines to create within map extent. lists will be interpreted a [nx, ny]. default = None</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>xs</code></td>
+<td><code>list</code></td>
+<td>
+<p>list of x coordinates to create gridlines. default = None</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>ys</code></td>
+<td><code>list</code></td>
+<td>
+<p>list of y coordinates to create gridlines. default = None</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>buffer_out</code></td>
+<td><code>boolean</code></td>
+<td>
+<p>boolean option to buffer out the extent to insure coordinates created cover map extent. default=true</p>
+</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>xtick_rotation</code></td>
+<td><code>str | float</code></td>
+<td></td>
+<td><code>'horizontal'</code></td>
+</tr>
+<tr>
+<td><code>ytick_rotation</code></td>
+<td><code>str | float</code></td>
+<td></td>
+<td><code>'horizontal'</code></td>
+</tr>
+<tr>
+<td><code>**kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>remaining keyword arguments are passed to gridlines()</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>if all interval, n_ticks, or (xs,ys) are set to None</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_gridlines</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">buffer_out</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">xtick_rotation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
+    <span class="n">ytick_rotation</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""Helper function to add gridlines and format ticks to map</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object to add the gridlines to</span>
+<span class="sd">        interval (float | list[float], optional): float specifying an interval at which to create gridlines, units are decimal degrees. lists will be interpreted a [x_interval, y_interval]. default = None</span>
+<span class="sd">        n_ticks (int | list[int], optional): integer specifying number gridlines to create within map extent. lists will be interpreted a [nx, ny]. default = None</span>
+<span class="sd">        xs (list, optional): list of x coordinates to create gridlines. default = None</span>
+<span class="sd">        ys (list, optional): list of y coordinates to create gridlines. default = None</span>
+<span class="sd">        buffer_out (boolean, optional): boolean option to buffer out the extent to insure coordinates created cover map extent. default=true</span>
+<span class="sd">        xtick_rotation (str | float, optional):</span>
+<span class="sd">        ytick_rotation (str | float, optional):</span>
+<span class="sd">        **kwargs: remaining keyword arguments are passed to gridlines()</span>
+
+<span class="sd">    raises:</span>
+<span class="sd">        ValueError: if all interval, n_ticks, or (xs,ys) are set to None</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">view_extent</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_extent</span><span class="p">()</span>
+    <span class="n">extent</span> <span class="o">=</span> <span class="n">view_extent</span>
+
+    <span class="k">if</span> <span class="n">xs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">xmain</span> <span class="o">=</span> <span class="n">xs</span>
+
+    <span class="k">elif</span> <span class="n">interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+            <span class="n">xspace</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">xspace</span> <span class="o">=</span> <span class="n">interval</span>
+
+        <span class="k">if</span> <span class="n">buffer_out</span><span class="p">:</span>
+            <span class="n">extent</span> <span class="o">=</span> <span class="n">_buffer_box</span><span class="p">(</span><span class="n">extent</span><span class="p">,</span> <span class="n">xspace</span><span class="p">)</span>
+
+        <span class="n">xmain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">xspace</span><span class="p">,</span> <span class="n">xspace</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">n_ticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_ticks</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+            <span class="n">n_x</span> <span class="o">=</span> <span class="n">n_ticks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_x</span> <span class="o">=</span> <span class="n">n_ticks</span>
+
+        <span class="n">xmain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">"one of variables interval, n_ticks, or xs must be defined. If you would like default gridlines, please use `ax.gridlines()`"</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ymain</span> <span class="o">=</span> <span class="n">ys</span>
+
+    <span class="k">elif</span> <span class="n">interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+            <span class="n">yspace</span> <span class="o">=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">yspace</span> <span class="o">=</span> <span class="n">interval</span>
+
+        <span class="k">if</span> <span class="n">buffer_out</span><span class="p">:</span>
+            <span class="n">extent</span> <span class="o">=</span> <span class="n">_buffer_box</span><span class="p">(</span><span class="n">extent</span><span class="p">,</span> <span class="n">yspace</span><span class="p">)</span>
+
+        <span class="n">ymain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">extent</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">yspace</span><span class="p">,</span> <span class="n">yspace</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">n_ticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_ticks</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+            <span class="n">n_y</span> <span class="o">=</span> <span class="n">n_ticks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_y</span> <span class="o">=</span> <span class="n">n_ticks</span>
+
+        <span class="n">ymain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">extent</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">n_y</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">"one of variables interval, n_ticks, or ys must be defined. If you would like default gridlines, please use `ax.gridlines()`"</span>
+        <span class="p">)</span>
+
+    <span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">xlocs</span><span class="o">=</span><span class="n">xmain</span><span class="p">,</span> <span class="n">ylocs</span><span class="o">=</span><span class="n">ymain</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">xin</span> <span class="o">=</span> <span class="n">xmain</span><span class="p">[(</span><span class="n">xmain</span> <span class="o">&gt;=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">xmain</span> <span class="o">&lt;=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    <span class="n">yin</span> <span class="o">=</span> <span class="n">ymain</span><span class="p">[(</span><span class="n">ymain</span> <span class="o">&gt;=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ymain</span> <span class="o">&lt;=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">3</span><span class="p">])]</span>
+
+    <span class="c1"># set tick labels</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xin</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">yin</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xin</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="n">xtick_rotation</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">yin</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="n">ytick_rotation</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LONGITUDE_FORMATTER</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LATITUDE_FORMATTER</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.add_layer">
+
+        <code class="highlight language-python">
+add_layer<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">img_obj</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vis_params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Add an Earth Engine image to a cartopy plot.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img_obj</code></td>
+<td><code>ee.image.Image</code></td>
+<td>
+<p>Earth Engine image result to plot.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object to add image overlay to</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>dims</code></td>
+<td><code>list | tuple | int</code></td>
+<td>
+<p>dimensions to request earth engine result as [WIDTH,HEIGHT]. If only one number is passed, it is used as the maximum, and the other dimension is computed by proportional scaling. Default None and infers dimesions</p>
+</td>
+<td><code>1000</code></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>list | tuple</code></td>
+<td>
+<p>geospatial region of the image to render in format [E,S,W,N]. By default, the whole image</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>cmap</code></td>
+<td><code>str</code></td>
+<td>
+<p>string specifying matplotlib colormap to colorize image. If cmap is specified visParams cannot contain 'palette' key</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>vis_params</code></td>
+<td><code>dict</code></td>
+<td>
+<p>visualization parameters as a dictionary. See https://developers.google.com/earth-engine/image_visualization for options</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax (cartopy.mpl.geoaxes.GeoAxesSubplot)</code></td>
+<td>
+<p>cartopy GeoAxesSubplot object with Earth Engine results displayed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If <code>dims</code> is not of type list, tuple, or int</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If <code>imgObj</code> is not of type ee.image.Image</p>
+</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>
+<p>If <code>ax</code> if not of type cartopy.mpl.geoaxes.GeoAxesSubplot '</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_layer</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">img_obj</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vis_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Add an Earth Engine image to a cartopy plot.</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        img_obj (ee.image.Image): Earth Engine image result to plot.</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object to add image overlay to</span>
+<span class="sd">        dims (list | tuple | int, optional): dimensions to request earth engine result as [WIDTH,HEIGHT]. If only one number is passed, it is used as the maximum, and the other dimension is computed by proportional scaling. Default None and infers dimesions</span>
+<span class="sd">        region (list | tuple, optional): geospatial region of the image to render in format [E,S,W,N]. By default, the whole image</span>
+<span class="sd">        cmap (str, optional): string specifying matplotlib colormap to colorize image. If cmap is specified visParams cannot contain 'palette' key</span>
+<span class="sd">        vis_params (dict, optional): visualization parameters as a dictionary. See https://developers.google.com/earth-engine/image_visualization for options</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot): cartopy GeoAxesSubplot object with Earth Engine results displayed</span>
+
+<span class="sd">    raises:</span>
+<span class="sd">        ValueError: If `dims` is not of type list, tuple, or int</span>
+<span class="sd">        ValueError: If `imgObj` is not of type ee.image.Image</span>
+<span class="sd">        ValueError: If `ax` if not of type cartopy.mpl.geoaxes.GeoAxesSubplot '</span>
+<span class="sd">    """</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">img_obj</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">ee</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">Image</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"provided `img_obj` is not of type ee.Image"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">map_region</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">region</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()[</span><span class="s2">"coordinates"</span><span class="p">]</span>
+        <span class="n">view_extent</span> <span class="o">=</span> <span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">region</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">region</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">region</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">map_region</span> <span class="o">=</span> <span class="n">img_obj</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span><span class="p">()</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()[</span><span class="s2">"coordinates"</span><span class="p">]</span>
+        <span class="c1"># get the image bounds</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">map_region</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">view_extent</span> <span class="o">=</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"provided dims not of type list, tuple, or int"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">GeoAxes</span><span class="p">,</span> <span class="n">GeoAxesSubplot</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">"provided axes not of type cartopy.mpl.geoaxes.GeoAxes "</span>
+            <span class="s2">"or cartopy.mpl.geoaxes.GeoAxesSubplot"</span>
+        <span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"format"</span><span class="p">:</span> <span class="s2">"png"</span><span class="p">,</span> <span class="s2">"crs"</span><span class="p">:</span> <span class="s2">"EPSG:4326"</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">region</span><span class="p">:</span>
+        <span class="n">args</span><span class="p">[</span><span class="s2">"region"</span><span class="p">]</span> <span class="o">=</span> <span class="n">map_region</span>
+    <span class="k">if</span> <span class="n">dims</span><span class="p">:</span>
+        <span class="n">args</span><span class="p">[</span><span class="s2">"dimensions"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims</span>
+
+    <span class="k">if</span> <span class="n">vis_params</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vis_params</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">cmap</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">"palette"</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s2">"cannot provide `palette` in vis_params if `cmap` is specified"</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cmap</span><span class="p">:</span>
+            <span class="n">args</span><span class="p">[</span><span class="s2">"palette"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">build_palette</span><span class="p">(</span><span class="n">cmap</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">vis_params</span><span class="p">}</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="n">img_obj</span><span class="o">.</span><span class="n">getThumbUrl</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)[</span><span class="s2">"error"</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">image</span><span class="p">),</span>
+        <span class="n">extent</span><span class="o">=</span><span class="n">view_extent</span><span class="p">,</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">"upper"</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.add_north_arrow">
+
+        <code class="highlight language-python">
+add_north_arrow<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">'N'</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">arrow_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">text_color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">arrow_color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Add a north arrow to the map.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>str</code></td>
+<td>
+<p>Text for north arrow. Defaults to "N".</p>
+</td>
+<td><code>'N'</code></td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td><code>tuple</code></td>
+<td>
+<p>Location of the north arrow. Each number representing the percentage length of the map from the lower-left cornor. Defaults to (0.1, 0.1).</p>
+</td>
+<td><code>(0.1, 0.1)</code></td>
+</tr>
+<tr>
+<td><code>arrow_length</code></td>
+<td><code>float</code></td>
+<td>
+<p>Length of the north arrow. Defaults to 0.1 (10% length of the map).</p>
+</td>
+<td><code>0.1</code></td>
+</tr>
+<tr>
+<td><code>text_color</code></td>
+<td><code>str</code></td>
+<td>
+<p>Text color. Defaults to "black".</p>
+</td>
+<td><code>'black'</code></td>
+</tr>
+<tr>
+<td><code>arrow_color</code></td>
+<td><code>str</code></td>
+<td>
+<p>North arrow color. Defaults to "black".</p>
+</td>
+<td><code>'black'</code></td>
+</tr>
+<tr>
+<td><code>fontsize</code></td>
+<td><code>int</code></td>
+<td>
+<p>Text font size. Defaults to 20.</p>
+</td>
+<td><code>20</code></td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td><code>int</code></td>
+<td>
+<p>Width of the north arrow. Defaults to 5.</p>
+</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>headwidth</code></td>
+<td><code>int</code></td>
+<td>
+<p>head width of the north arrow. Defaults to 15.</p>
+</td>
+<td><code>15</code></td>
+</tr>
+<tr>
+<td><code>ha</code></td>
+<td><code>str</code></td>
+<td>
+<p>Horizontal alignment. Defaults to "center".</p>
+</td>
+<td><code>'center'</code></td>
+</tr>
+<tr>
+<td><code>va</code></td>
+<td><code>str</code></td>
+<td>
+<p>Vertical alignment. Defaults to "center".</p>
+</td>
+<td><code>'center'</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_north_arrow</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span>
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">arrow_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">text_color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+    <span class="n">arrow_color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">headwidth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+    <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""Add a north arrow to the map.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object.</span>
+<span class="sd">        text (str, optional): Text for north arrow. Defaults to "N".</span>
+<span class="sd">        xy (tuple, optional): Location of the north arrow. Each number representing the percentage length of the map from the lower-left cornor. Defaults to (0.1, 0.1).</span>
+<span class="sd">        arrow_length (float, optional): Length of the north arrow. Defaults to 0.1 (10% length of the map).</span>
+<span class="sd">        text_color (str, optional): Text color. Defaults to "black".</span>
+<span class="sd">        arrow_color (str, optional): North arrow color. Defaults to "black".</span>
+<span class="sd">        fontsize (int, optional): Text font size. Defaults to 20.</span>
+<span class="sd">        width (int, optional): Width of the north arrow. Defaults to 5.</span>
+<span class="sd">        headwidth (int, optional): head width of the north arrow. Defaults to 15.</span>
+<span class="sd">        ha (str, optional): Horizontal alignment. Defaults to "center".</span>
+<span class="sd">        va (str, optional): Vertical alignment. Defaults to "center".</span>
+<span class="sd">    """</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+        <span class="n">text</span><span class="p">,</span>
+        <span class="n">xy</span><span class="o">=</span><span class="n">xy</span><span class="p">,</span>
+        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">arrow_length</span><span class="p">),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">,</span>
+        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">arrow_color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="n">headwidth</span><span class="p">),</span>
+        <span class="n">ha</span><span class="o">=</span><span class="n">ha</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="n">va</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span>
+        <span class="n">xycoords</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.add_scale_bar">
+
+        <code class="highlight language-python">
+add_scale_bar<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'km'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'bottom'</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Add a scale bar to the map. Reference: https://stackoverflow.com/a/50674451/2676166</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td><code>[type]</code></td>
+<td>
+<p>Length of the scale car. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td><code>tuple</code></td>
+<td>
+<p>Location of the north arrow. Each number representing the percentage length of the map from the lower-left cornor. Defaults to (0.1, 0.1).</p>
+</td>
+<td><code>(0.5, 0.05)</code></td>
+</tr>
+<tr>
+<td><code>linewidth</code></td>
+<td><code>int</code></td>
+<td>
+<p>Line width of the scale bar. Defaults to 3.</p>
+</td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td><code>fontsize</code></td>
+<td><code>int</code></td>
+<td>
+<p>Text font size. Defaults to 20.</p>
+</td>
+<td><code>20</code></td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td><code>str</code></td>
+<td>
+<p>Color for the scale bar. Defaults to "black".</p>
+</td>
+<td><code>'black'</code></td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td><code>str</code></td>
+<td>
+<p>Length unit for the scale bar. Defaults to "km".</p>
+</td>
+<td><code>'km'</code></td>
+</tr>
+<tr>
+<td><code>ha</code></td>
+<td><code>str</code></td>
+<td>
+<p>Horizontal alignment. Defaults to "center".</p>
+</td>
+<td><code>'center'</code></td>
+</tr>
+<tr>
+<td><code>va</code></td>
+<td><code>str</code></td>
+<td>
+<p>Vertical alignment. Defaults to "bottom".</p>
+</td>
+<td><code>'bottom'</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_scale_bar</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+    <span class="n">unit</span><span class="o">=</span><span class="s2">"km"</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+    <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""Add a scale bar to the map. Reference: https://stackoverflow.com/a/50674451/2676166</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object.</span>
+<span class="sd">        length ([type], optional): Length of the scale car. Defaults to None.</span>
+<span class="sd">        xy (tuple, optional): Location of the north arrow. Each number representing the percentage length of the map from the lower-left cornor. Defaults to (0.1, 0.1).</span>
+<span class="sd">        linewidth (int, optional): Line width of the scale bar. Defaults to 3.</span>
+<span class="sd">        fontsize (int, optional): Text font size. Defaults to 20.</span>
+<span class="sd">        color (str, optional): Color for the scale bar. Defaults to "black".</span>
+<span class="sd">        unit (str, optional): Length unit for the scale bar. Defaults to "km".</span>
+<span class="sd">        ha (str, optional): Horizontal alignment. Defaults to "center".</span>
+<span class="sd">        va (str, optional): Vertical alignment. Defaults to "bottom".</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">allow_units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"cm"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"km"</span><span class="p">,</span> <span class="s2">"inch"</span><span class="p">,</span> <span class="s2">"foot"</span><span class="p">,</span> <span class="s2">"mile"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allow_units</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"The unit must be one of the following: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allow_units</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">length</span>
+
+    <span class="c1"># Get the limits of the axis in lat long</span>
+    <span class="n">llx0</span><span class="p">,</span> <span class="n">llx1</span><span class="p">,</span> <span class="n">lly0</span><span class="p">,</span> <span class="n">lly1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_extent</span><span class="p">(</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="c1"># Make tmc horizontally centred on the middle of the map,</span>
+    <span class="c1"># vertically at scale bar location</span>
+    <span class="n">sbllx</span> <span class="o">=</span> <span class="p">(</span><span class="n">llx1</span> <span class="o">+</span> <span class="n">llx0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">sblly</span> <span class="o">=</span> <span class="n">lly0</span> <span class="o">+</span> <span class="p">(</span><span class="n">lly1</span> <span class="o">-</span> <span class="n">lly0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">tmc</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">TransverseMercator</span><span class="p">(</span><span class="n">sbllx</span><span class="p">,</span> <span class="n">sblly</span><span class="p">,</span> <span class="n">approx</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Get the extent of the plotted area in coordinates in metres</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_extent</span><span class="p">(</span><span class="n">tmc</span><span class="p">)</span>
+    <span class="c1"># Turn the specified scalebar location into coordinates in metres</span>
+    <span class="n">sbx</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sby</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Calculate a scale bar length if none has been given</span>
+    <span class="c1"># (Theres probably a more pythonic way of rounding the number but this works)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">length</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5000</span>  <span class="c1"># in km</span>
+        <span class="n">ndim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">length</span><span class="p">)))</span>  <span class="c1"># number of digits in number</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="o">-</span><span class="n">ndim</span><span class="p">)</span>  <span class="c1"># round to 1sf</span>
+        <span class="c1"># Returns numbers starting with the list</span>
+        <span class="k">def</span> <span class="nf">scale_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"5"</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">scale_number</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">ndim</span><span class="p">)</span>
+
+        <span class="n">length</span> <span class="o">=</span> <span class="n">scale_number</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">length</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">convert_SI</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="s2">"km"</span><span class="p">)</span>
+
+    <span class="c1"># Generate the x coordinate for the ends of the scalebar</span>
+    <span class="n">bar_xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sbx</span> <span class="o">-</span> <span class="n">length</span> <span class="o">*</span> <span class="mi">500</span><span class="p">,</span> <span class="n">sbx</span> <span class="o">+</span> <span class="n">length</span> <span class="o">*</span> <span class="mi">500</span><span class="p">]</span>
+    <span class="c1"># Plot the scalebar</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bar_xs</span><span class="p">,</span> <span class="p">[</span><span class="n">sby</span><span class="p">,</span> <span class="n">sby</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">tmc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">)</span>
+    <span class="c1"># Plot the scalebar label</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">sbx</span><span class="p">,</span>
+        <span class="n">sby</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">unit</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">tmc</span><span class="p">,</span>
+        <span class="n">horizontalalignment</span><span class="o">=</span><span class="n">ha</span><span class="p">,</span>
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="n">va</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.bbox_to_extent">
+
+        <code class="highlight language-python">
+bbox_to_extent<span class="p">(</span><span class="n">bbox</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Helper function to reorder a list of coordinates from [W,S,E,N] to [W,E,S,N]</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bbox</code></td>
+<td><code>list[float]</code></td>
+<td>
+<p>list (or tuple) or coordinates in the order of [W,S,E,N]</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>extent (tuple[float])</code></td>
+<td>
+<p>tuple of coordinates in the order of [W,E,S,N]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">bbox_to_extent</span><span class="p">(</span><span class="n">bbox</span><span class="p">):</span>
+    <span class="sd">"""Helper function to reorder a list of coordinates from [W,S,E,N] to [W,E,S,N]</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        bbox (list[float]): list (or tuple) or coordinates in the order of [W,S,E,N]</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        extent (tuple[float]): tuple of coordinates in the order of [W,E,S,N]</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.build_palette">
+
+        <code class="highlight language-python">
+build_palette<span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Creates hex color code palette from a matplotlib colormap</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmap</code></td>
+<td><code>str</code></td>
+<td>
+<p>string specifying matplotlib colormap to colorize image. If cmap is specified visParams cannot contain 'palette' key</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td><code>int</code></td>
+<td>
+<p>Number of hex color codes to create from colormap. Default is 256</p>
+</td>
+<td><code>256</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>palette (list[str])</code></td>
+<td>
+<p>list of hex color codes from matplotlib colormap for n intervals</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">build_palette</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">256</span><span class="p">):</span>
+    <span class="sd">"""Creates hex color code palette from a matplotlib colormap</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        cmap (str): string specifying matplotlib colormap to colorize image. If cmap is specified visParams cannot contain 'palette' key</span>
+<span class="sd">        n (int, optional): Number of hex color codes to create from colormap. Default is 256</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        palette (list[str]): list of hex color codes from matplotlib colormap for n intervals</span>
+<span class="sd">    """</span>
+
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">palette</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">colors</span><span class="o">.</span><span class="n">rgb2hex</span><span class="p">(</span><span class="n">colormap</span><span class="p">(</span><span class="n">x</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]),</span> <span class="n">vals</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">palette</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.check_dependencies">
+
+        <code class="highlight language-python">
+check_dependencies<span class="p">()</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Helper function to check dependencies used for cartoee
+Dependencies not included in main geemap are: cartopy, PIL, and scipys</p>
+<p><strong>Exceptions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Exception</code></td>
+<td>
+<p>when conda is not found in path</p>
+</td>
+</tr>
+<tr>
+<td><code>Exception</code></td>
+<td>
+<p>when auto install fails to install/import packages</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">check_dependencies</span><span class="p">():</span>
+    <span class="sd">"""Helper function to check dependencies used for cartoee</span>
+<span class="sd">    Dependencies not included in main geemap are: cartopy, PIL, and scipys</span>
+
+<span class="sd">    raises:</span>
+<span class="sd">        Exception: when conda is not found in path</span>
+<span class="sd">        Exception: when auto install fails to install/import packages</span>
+<span class="sd">    """</span>
+
+    <span class="kn">import</span> <span class="nn">importlib</span>
+
+    <span class="c1"># check if conda in in path and available to use</span>
+    <span class="n">is_conda</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">"conda-meta"</span><span class="p">))</span>
+
+    <span class="c1"># raise error if conda not found</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_conda</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="s2">"Auto installation requires `conda`. Please install conda using the following instructions before use: https://docs.conda.io/projects/conda/en/latest/user-guide/install/"</span>
+        <span class="p">)</span>
+
+    <span class="c1"># list of dependencies to check, ordered in decreasing complexity</span>
+    <span class="c1"># i.e. cartopy install should install PIL</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"cartopy"</span><span class="p">,</span> <span class="s2">"pillow"</span><span class="p">,</span> <span class="s2">"scipy"</span><span class="p">]</span>
+
+    <span class="c1"># loop through dependency list and check if we can import module</span>
+    <span class="c1"># if not try to install</span>
+    <span class="c1"># install fail will be silent to continue through others if there is a failure</span>
+    <span class="c1"># correct install will be checked later</span>
+    <span class="k">for</span> <span class="n">dependency</span> <span class="ow">in</span> <span class="n">dependencies</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># see if we can import</span>
+            <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">dependency</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="c1"># change the dependency name if it is PIL</span>
+            <span class="c1"># import vs install names are different for PIL...</span>
+            <span class="c1"># dependency = dependency if dependency is not "PIL" else "pillow"</span>
+
+            <span class="c1"># print info if not installed</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"The </span><span class="si">{</span><span class="n">dependency</span><span class="si">}</span><span class="s2"> package is not installed. Trying install..."</span>
+            <span class="p">)</span>
+
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Installing </span><span class="si">{</span><span class="n">dependency</span><span class="si">}</span><span class="s2"> ..."</span><span class="p">)</span>
+
+            <span class="c1"># run the command</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"conda install -c conda-forge </span><span class="si">{</span><span class="n">dependency</span><span class="si">}</span><span class="s2"> -y"</span>
+            <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+                <span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span>
+            <span class="p">)</span>
+            <span class="c1"># send command</span>
+            <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="c1"># second pass through dependencies to check if everything was installed correctly</span>
+    <span class="n">failed</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">dependency</span> <span class="ow">in</span> <span class="n">dependencies</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">dependency</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="c1"># append failed imports</span>
+            <span class="n">failed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dependency</span><span class="p">)</span>
+
+    <span class="c1"># check if there were any failed imports after trying install</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">failed</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">failed_str</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">failed</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Auto installation failed...the following dependencies were not installed '</span><span class="si">{</span><span class="n">failed_str</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"All dependencies are successfully imported/installed!"</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.convert_SI">
+
+        <code class="highlight language-python">
+convert_SI<span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">unit_in</span><span class="p">,</span> <span class="n">unit_out</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Unit converter.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>val</code></td>
+<td><code>float</code></td>
+<td>
+<p>The value to convert.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>unit_in</code></td>
+<td><code>str</code></td>
+<td>
+<p>The input unit.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>unit_out</code></td>
+<td><code>str</code></td>
+<td>
+<p>The output unit.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>
+<p>The value after unit conversion.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">convert_SI</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">unit_in</span><span class="p">,</span> <span class="n">unit_out</span><span class="p">):</span>
+    <span class="sd">"""Unit converter.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        val (float): The value to convert.</span>
+<span class="sd">        unit_in (str): The input unit.</span>
+<span class="sd">        unit_out (str): The output unit.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The value after unit conversion.</span>
+<span class="sd">    """</span>
+    <span class="n">SI</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"cm"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s2">"m"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">"km"</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
+        <span class="s2">"inch"</span><span class="p">:</span> <span class="mf">0.0254</span><span class="p">,</span>
+        <span class="s2">"foot"</span><span class="p">:</span> <span class="mf">0.3048</span><span class="p">,</span>
+        <span class="s2">"mile"</span><span class="p">:</span> <span class="mf">1609.34</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">val</span> <span class="o">*</span> <span class="n">SI</span><span class="p">[</span><span class="n">unit_in</span><span class="p">]</span> <span class="o">/</span> <span class="n">SI</span><span class="p">[</span><span class="n">unit_out</span><span class="p">]</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.get_image_collection_gif">
+
+        <code class="highlight language-python">
+get_image_collection_gif<span class="p">(</span><span class="n">ee_ic</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">,</span> <span class="n">out_gif</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mp4</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">grid_interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot_title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">'YYYY-MM-dd'</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi_plot</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">file_format</span><span class="o">=</span><span class="s1">'png'</span><span class="p">,</span> <span class="n">north_arrow_dict</span><span class="o">=</span><span class="p">{},</span> <span class="n">scale_bar_dict</span><span class="o">=</span><span class="p">{},</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Download all the images in an image collection and use them to generate a gif/video.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ee_ic</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>out_dir</code></td>
+<td><code>str</code></td>
+<td>
+<p>The output directory of images and video.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>out_gif</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the gif file.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>vis_params</code></td>
+<td><code>dict</code></td>
+<td>
+<p>Visualization parameters as a dictionary.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>list | tuple</code></td>
+<td>
+<p>Geospatial region of the image to render in format [E,S,W,N].</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>fps</code></td>
+<td><code>int</code></td>
+<td>
+<p>Video frames per second. Defaults to 10.</p>
+</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>mp4</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to create mp4 video.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>grid_interval</code></td>
+<td><code>float | tuple[float]</code></td>
+<td>
+<p>Float specifying an interval at which to create gridlines, units are decimal degrees. lists will be interpreted a (x_interval, y_interval), such as (0.1, 0.1). Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>plot_title</code></td>
+<td><code>str</code></td>
+<td>
+<p>Plot title. Defaults to "".</p>
+</td>
+<td><code>''</code></td>
+</tr>
+<tr>
+<td><code>date_format</code></td>
+<td><code>str</code></td>
+<td>
+<p>A pattern, as described at http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormat.html. Defaults to "YYYY-MM-dd".</p>
+</td>
+<td><code>'YYYY-MM-dd'</code></td>
+</tr>
+<tr>
+<td><code>fig_size</code></td>
+<td><code>tuple</code></td>
+<td>
+<p>Size of the figure.</p>
+</td>
+<td><code>(10, 10)</code></td>
+</tr>
+<tr>
+<td><code>dpi_plot</code></td>
+<td><code>int</code></td>
+<td>
+<p>The resolution in dots per inch of the plot.</p>
+</td>
+<td><code>100</code></td>
+</tr>
+<tr>
+<td><code>file_format</code></td>
+<td><code>str</code></td>
+<td>
+<p>Either 'png' or 'jpg'.</p>
+</td>
+<td><code>'png'</code></td>
+</tr>
+<tr>
+<td><code>north_arrow_dict</code></td>
+<td><code>dict</code></td>
+<td>
+<p>Parameters for the north arrow. See https://geemap.org/cartoee/#geemap.cartoee.add_north_arrow. Defaults to {}.</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+<tr>
+<td><code>scale_bar_dict</code></td>
+<td><code>dict</code></td>
+<td>
+<p>Parameters for the scale bar. See https://geemap.org/cartoee/#geemap.cartoee.add_scale_bar. Defaults. to {}.</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether or not to print text when the program is running. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_image_collection_gif</span><span class="p">(</span>
+    <span class="n">ee_ic</span><span class="p">,</span>
+    <span class="n">out_dir</span><span class="p">,</span>
+    <span class="n">out_gif</span><span class="p">,</span>
+    <span class="n">vis_params</span><span class="p">,</span>
+    <span class="n">region</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">proj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">mp4</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">grid_interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">plot_title</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="n">date_format</span><span class="o">=</span><span class="s2">"YYYY-MM-dd"</span><span class="p">,</span>
+    <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">dpi_plot</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">file_format</span><span class="o">=</span><span class="s2">"png"</span><span class="p">,</span>
+    <span class="n">north_arrow_dict</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">scale_bar_dict</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""Download all the images in an image collection and use them to generate a gif/video.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        ee_ic (object): ee.ImageCollection</span>
+<span class="sd">        out_dir (str): The output directory of images and video.</span>
+<span class="sd">        out_gif (str): The name of the gif file.</span>
+<span class="sd">        vis_params (dict): Visualization parameters as a dictionary.</span>
+<span class="sd">        region (list | tuple): Geospatial region of the image to render in format [E,S,W,N].</span>
+<span class="sd">        fps (int, optional): Video frames per second. Defaults to 10.</span>
+<span class="sd">        mp4 (bool, optional): Whether to create mp4 video.</span>
+<span class="sd">        grid_interval (float | tuple[float]): Float specifying an interval at which to create gridlines, units are decimal degrees. lists will be interpreted a (x_interval, y_interval), such as (0.1, 0.1). Defaults to None.</span>
+<span class="sd">        plot_title (str): Plot title. Defaults to "".</span>
+<span class="sd">        date_format (str, optional): A pattern, as described at http://joda-time.sourceforge.net/apidocs/org/joda/time/format/DateTimeFormat.html. Defaults to "YYYY-MM-dd".</span>
+<span class="sd">        fig_size (tuple, optional): Size of the figure.</span>
+<span class="sd">        dpi_plot (int, optional): The resolution in dots per inch of the plot.</span>
+<span class="sd">        file_format (str, optional): Either 'png' or 'jpg'.</span>
+<span class="sd">        north_arrow_dict (dict, optional): Parameters for the north arrow. See https://geemap.org/cartoee/#geemap.cartoee.add_north_arrow. Defaults to {}.</span>
+<span class="sd">        scale_bar_dict (dict, optional): Parameters for the scale bar. See https://geemap.org/cartoee/#geemap.cartoee.add_scale_bar. Defaults. to {}.</span>
+<span class="sd">        verbose (bool, optional): Whether or not to print text when the program is running. Defaults to True.</span>
+<span class="sd">    """</span>
+
+    <span class="kn">from</span> <span class="nn">.geemap</span> <span class="kn">import</span> <span class="n">png_to_gif</span>
+
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+    <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
+
+    <span class="n">out_gif</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">out_gif</span><span class="p">)</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ee_ic</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">getInfo</span><span class="p">())</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">ee_ic</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s2">"system:index"</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">ee_ic</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">ee_ic</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s2">"system:time_start"</span><span class="p">)</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date_format</span><span class="p">))</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+
+    <span class="c1"># list of file name</span>
+    <span class="n">img_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">date</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dates</span><span class="p">):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">"."</span> <span class="o">+</span> <span class="n">file_format</span>
+        <span class="n">out_img</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">img_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out_img</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ..."</span><span class="p">)</span>
+
+        <span class="c1"># Size plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">fig_size</span><span class="p">)</span>
+
+        <span class="c1"># Plot image</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">get_map</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">vis_params</span><span class="o">=</span><span class="n">vis_params</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">proj</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+
+        <span class="c1"># Add grid</span>
+        <span class="k">if</span> <span class="n">grid_interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">add_gridlines</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="n">grid_interval</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">":"</span><span class="p">)</span>
+
+        <span class="c1"># Add title</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">plot_title</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">plot_title</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+        <span class="c1"># Add scale bar</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scale_bar_dict</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">add_scale_bar</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">scale_bar_dict</span><span class="p">)</span>
+        <span class="c1"># Add north arrow</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">north_arrow_dict</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">add_north_arrow</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">north_arrow_dict</span><span class="p">)</span>
+
+        <span class="c1"># Save plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">out_img</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi_plot</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">out_gif</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_gif</span><span class="p">)</span>
+    <span class="n">png_to_gif</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">out_gif</span><span class="p">,</span> <span class="n">fps</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GIF saved to </span><span class="si">{</span><span class="n">out_gif</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mp4</span><span class="p">:</span>
+
+        <span class="n">video_filename</span> <span class="o">=</span> <span class="n">out_gif</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".gif"</span><span class="p">,</span> <span class="s2">".mp4"</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">cv2</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Installing opencv-python ..."</span><span class="p">)</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"opencv-python"</span><span class="p">])</span>
+            <span class="kn">import</span> <span class="nn">cv2</span>
+
+        <span class="c1"># Video file name</span>
+        <span class="n">output_video_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">video_filename</span><span class="p">)</span>
+
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">frame_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+        <span class="n">fps_video</span> <span class="o">=</span> <span class="n">fps</span>
+
+        <span class="c1"># Make mp4</span>
+        <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">)</span>
+
+        <span class="c1"># Function</span>
+        <span class="k">def</span> <span class="nf">convert_frames_to_video</span><span class="p">(</span>
+            <span class="n">input_list</span><span class="p">,</span> <span class="n">output_video_file_name</span><span class="p">,</span> <span class="n">fps_video</span><span class="p">,</span> <span class="n">frame_size</span>
+        <span class="p">):</span>
+
+            <span class="sd">"""Convert frames to video</span>
+
+<span class="sd">            Args:</span>
+
+<span class="sd">                input_list (list): Downloaded Image Name List.</span>
+<span class="sd">                output_video_file_name (str): The name of the video file in the image directory.</span>
+<span class="sd">                fps_video (int): Video frames per second.</span>
+<span class="sd">                frame_size (tuple): Frame size.</span>
+<span class="sd">            """</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="n">output_video_file_name</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="n">fps_video</span><span class="p">,</span> <span class="n">frame_size</span><span class="p">)</span>
+            <span class="n">num_frames</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_list</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">):</span>
+                <span class="n">img_path</span> <span class="o">=</span> <span class="n">input_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+            <span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+
+        <span class="c1"># Use function</span>
+        <span class="n">convert_frames_to_video</span><span class="p">(</span>
+            <span class="n">input_list</span><span class="o">=</span><span class="n">img_list</span><span class="p">,</span>
+            <span class="n">output_video_file_name</span><span class="o">=</span><span class="n">output_video_file_name</span><span class="p">,</span>
+            <span class="n">fps_video</span><span class="o">=</span><span class="n">fps_video</span><span class="p">,</span>
+            <span class="n">frame_size</span><span class="o">=</span><span class="n">frame_size</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MP4 saved to </span><span class="si">{</span><span class="n">output_video_file_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.get_map">
+
+        <code class="highlight language-python">
+get_map<span class="p">(</span><span class="n">img_obj</span><span class="p">,</span> <span class="n">proj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Wrapper function to create a new cartopy plot with project and adds Earth
+Engine image results</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img_obj</code></td>
+<td><code>ee.Image</code></td>
+<td>
+<p>Earth Engine image result to plot</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>proj</code></td>
+<td><code>cartopy.crs</code></td>
+<td>
+<p>Cartopy projection that determines the projection of the resulting plot. By default uses an equirectangular projection, PlateCarree</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>**kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>remaining keyword arguments are passed to addLayer()</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax (cartopy.mpl.geoaxes.GeoAxesSubplot)</code></td>
+<td>
+<p>cartopy GeoAxesSubplot object with Earth Engine results displayed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_map</span><span class="p">(</span><span class="n">img_obj</span><span class="p">,</span> <span class="n">proj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Wrapper function to create a new cartopy plot with project and adds Earth</span>
+<span class="sd">    Engine image results</span>
+<span class="sd">    Args:</span>
+<span class="sd">        img_obj (ee.Image): Earth Engine image result to plot</span>
+<span class="sd">        proj (cartopy.crs, optional): Cartopy projection that determines the projection of the resulting plot. By default uses an equirectangular projection, PlateCarree</span>
+<span class="sd">        **kwargs: remaining keyword arguments are passed to addLayer()</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot): cartopy GeoAxesSubplot object with Earth Engine results displayed</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">proj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+    <span class="n">add_layer</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">img_obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.cartoee.pad_view">
+
+        <code class="highlight language-python">
+pad_view<span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Function to pad area around the view extent of a map, used for visual appeal</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td><code>cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes</code></td>
+<td>
+<p>required cartopy GeoAxesSubplot object to pad view extent</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>factor</code></td>
+<td><code>float | list[float]</code></td>
+<td>
+<p>factor to pad view extent accepts float [0-1] of a list of floats which will be interpreted at [xfactor, yfactor]</p>
+</td>
+<td><code>0.05</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/cartoee.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">pad_view</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">"""Function to pad area around the view extent of a map, used for visual appeal</span>
+
+<span class="sd">    args:</span>
+<span class="sd">        ax (cartopy.mpl.geoaxes.GeoAxesSubplot | cartopy.mpl.geoaxes.GeoAxes): required cartopy GeoAxesSubplot object to pad view extent</span>
+<span class="sd">        factor (float | list[float], optional): factor to pad view extent accepts float [0-1] of a list of floats which will be interpreted at [xfactor, yfactor]</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">view_extent</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_extent</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">factor</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+        <span class="n">xfactor</span><span class="p">,</span> <span class="n">yfactor</span> <span class="o">=</span> <span class="n">factor</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xfactor</span><span class="p">,</span> <span class="n">yfactor</span> <span class="o">=</span> <span class="n">factor</span><span class="p">,</span> <span class="n">factor</span>
+
+    <span class="n">x_diff</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_diff</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">xmin</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">x_diff</span> <span class="o">*</span> <span class="n">xfactor</span><span class="p">)</span>
+    <span class="n">xmax</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x_diff</span> <span class="o">*</span> <span class="n">xfactor</span><span class="p">)</span>
+    <span class="n">ymin</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">y_diff</span> <span class="o">*</span> <span class="n">yfactor</span><span class="p">)</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="n">view_extent</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_diff</span> <span class="o">*</span> <span class="n">yfactor</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: 2020-12-21
+    
+  </small>
+</div>
+                  
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../basemaps/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                basemaps module
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../common/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                common module
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.0ac82a11.min.js"></script>
+      <script src="../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['instant', 'navigation.expand', 'tabs', 'search.highlight'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
